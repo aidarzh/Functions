@@ -18,7 +18,7 @@ function [F,Fw,Fr] = MI_PBCD2SFB(CO,B1m,Xc,X,W,UcIn,u,n,m,nw)
         Fw.Sym(i,:) = simplify(equationsToMatrix(uo(i),W));
         Fr.Sym(i,i) = simplify(equationsToMatrix(uo(i),Xc(COlnz(end))));
     end
-    F.Sym = simplify(B1m\F.Sym);
+    F.Sym = simplify(B1m\F.Sym); % = inv(B1m)*F.Sym; See the MID diagram
     Fw.Sym = simplify(B1m\Fw.Sym);
     Fr.Sym = simplify(B1m\Fr.Sym);
 end

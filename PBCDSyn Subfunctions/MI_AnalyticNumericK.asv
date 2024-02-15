@@ -19,11 +19,11 @@ function [Kout] = MI_AnalyticNumericK(Plant,GainCalcMethod,CO,Poles,Omega,n,m,F,
             end
             EVCoeffs = fliplr(coeffs(EVPolynomial,s)); 
             EVCoeffs = EVCoeffs(1:end-1);% [1/(w1*w2*w3), 1/(w1w2) + 1/(w2w3) + 1/(w1w3), 1/w1 + 1/w2 + 1/w3]
-            eqns = s==s;
+%             eqns = zeros(1,)
             for zx=1:idx
                 eqns(zx) = Coeffs(zx) == EVCoeffs(zx); % 1/(k1k2k3) = 1/(w1w2w3) etc.
             end
-            S = solve(eqns,Ki);
+            S = solve(eqns(:),Ki);
             for j=1:idx
                 Kout.Sym(COl(j)) = S.(string(Ki(j)));
             end

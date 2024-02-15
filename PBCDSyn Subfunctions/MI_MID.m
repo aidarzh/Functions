@@ -5,5 +5,5 @@ function [Bux,B1m] = MI_MID(Bu,CO)
     for i = 1:m
         B1m(i,:) = Bu(CO(i,1),:);
     end
-    Bux   = Bu/B1m;
+    Bux   = Bu/B1m; % = Bu*inv(B1m); see the MID diagram
 end
