@@ -10,7 +10,7 @@ function [Ac,Bc,Cc,Dc] = MI_PBCD2SS(m,n,nw,CO,F,Fw,Fr,K,Ki,Kout,Plant,Opts,Poles
     for i=1:m
         Polesl = Poles(i,:);
         idx = find(Polesl,1,'last');
-        Ki.Num(i) = 0.1*(Polesl(idx))^2;
+        Ki.Num(i) = Opts.IntegRatio*(Polesl(idx))^2;
     end
     
     % Controller State Space Representation -------------------------------
