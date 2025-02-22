@@ -1,9 +1,9 @@
-% Convert Symbolic Transfer Function to ZPK Transfer Function
-% Crystal Nassouri 2009
+% Convert Symbolic Transfer Function Matrix to ZPK Transfer Function
+% Aidar Zhetessov 2022
 % Allows for substitution/manipulation that can only be done with syms
 % 
 % Ex: Gs = syms2tf(G)
-% Where G is a symbolic equation and Gs is a zpk transfer function
+% Where G is a symbolic equation matrix and Gs is a zpk transfer function matrix
 function[ans,TF] = syms2tf(G)
 sizeG = size(G);
 for i=1:sizeG(1)
